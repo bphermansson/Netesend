@@ -1,7 +1,10 @@
 package nu.paheco.patrik.netesend;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.TextView;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -18,6 +21,7 @@ import java.io.InputStreamReader;
  * Created by user on 8/23/14.
  */
 public class NexaSend extends AsyncTask<String, Void, String> {
+
     private static final String TAG = "Nexatest";
     String result = "fail";
 
@@ -63,14 +67,22 @@ public class NexaSend extends AsyncTask<String, Void, String> {
                 }
             }
         }
+
         return result;
     }
 
 
+    //private TextView txtResult;
 
     public void onPostExecute(String result) {
         Log.d(TAG, "Result: ");
         Log.d(TAG, result);
+        //txtResult.setText(result);
+
+    }
+    public void updateResults (String results){
+        //MainActivity.get().setText(results);
+
     }
 
 }

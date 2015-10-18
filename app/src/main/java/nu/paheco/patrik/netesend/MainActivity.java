@@ -1,5 +1,6 @@
 package nu.paheco.patrik.netesend;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,9 +16,12 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class MainActivity extends AppCompatActivity {
+//public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
+
     String baseUrL = "http://192.168.1.7/hc/sendCommand.php?port=serial/by-id/usb-Telldus_Homeautomation_USB-Dongle_TS000007-if00-port0&proto=NEXA&";
 
     @Override
@@ -25,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 /*
         String houses[] = {"C", "P", "X"};
         Integer channels[] = {3,2,1,0};
@@ -130,13 +134,16 @@ public class MainActivity extends AppCompatActivity {
     public void sendOn(View v) {
         // "Brm"
         v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
         TextView house = (TextView) findViewById(R.id.txtHouse );
         TextView channel = (TextView) findViewById(R.id.txtChannel );
         String shouse = house.getText().toString();
+        shouse=shouse.toUpperCase();
         String schannel = channel.getText().toString();
         String data = "house=" + shouse + "&channel=" + schannel + "&onoff=on";
         String getUrl = baseUrL.concat(data);
         new NexaSend().execute(getUrl);
+
     }
     // Button sendOff clicked
     public void sendOff(View v) {
@@ -149,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
         String data = "house=" + shouse + "&channel=" + schannel + "&onoff=off";
         String getUrl = baseUrL.concat(data);
         new NexaSend().execute(getUrl);
+        Log.d("Sent off to", data);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
