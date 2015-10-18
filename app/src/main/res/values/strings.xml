@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Netesend</string>
+    <string name="action_settings">Settings</string>
+    <string name="button1">Vardagsrum-C3</string>
+    <string name="button2">Ute-P2</string>
+    <string name="button3">Stora hallen-C2</string>
+    <string name="button4">Kök-B3</string>
+    <string name="button5">Ej aktiv</string>
+
+</resources>
