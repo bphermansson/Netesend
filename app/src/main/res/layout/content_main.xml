@@ -12,13 +12,16 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tableRow1">
+        android:id="@+id/tableRow1"
+        android:padding="5dp">
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button1"
             android:id="@+id/switch1"
-            />
+            android:elegantTextHeight="false"
+            android:textSize="20dp"
+            android:backgroundTintMode="screen" />
     </TableRow>
     <TableRow
         android:layout_width="wrap_content"
@@ -30,47 +33,110 @@
             android:layout_height="wrap_content"
             android:text="@string/button2"
             android:id="@+id/switch2"
-            />
+            android:textSize="20dp"
+            android:padding="5dp" />
     </TableRow>
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tableRow3"
-        android:layout_below="@id/tableRow1">
+        android:layout_below="@id/tableRow2">
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button3"
             android:id="@+id/switch3"
-            />
+            android:textSize="20dp"
+            android:padding="5dp" />
     </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tableRow4"
-        android:layout_below="@id/tableRow1">
+        android:layout_below="@id/tableRow3">
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button4"
             android:id="@+id/switch4"
-            />
+            android:textSize="20dp"
+            android:padding="5dp" />
     </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tableRow5"
-        android:layout_below="@id/tableRow1">
+        android:layout_below="@id/tableRow4">
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/button5"
             android:id="@+id/switch5"
-            />
+            android:textSize="20dp"
+            android:padding="5dp" />
     </TableRow>
 
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableRow5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:id="@+id/tableRow6">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtHouse"
+            android:hint="House"
+            android:editable="true"
+            android:enabled="true" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableRow6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:id="@+id/tableRow7">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtChannel"
+            android:editable="true"
+            android:hint="Channel"
+            android:enabled="true" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tableRow7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:id="@+id/tableRow8">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On"
+            android:id="@+id/btnSendOn"
+            android:onClick="sendOn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Off"
+            android:id="@+id/btnSendOff"
+            android:onClick="sendOff"
+            android:singleLine="false" />
+    </TableRow>
 
 
 </RelativeLayout>

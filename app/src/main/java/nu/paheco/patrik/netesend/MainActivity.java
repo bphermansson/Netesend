@@ -11,8 +11,10 @@ import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -124,7 +126,30 @@ public class MainActivity extends AppCompatActivity {
 
         });
     }
-
+    // Button sendOn clicked
+    public void sendOn(View v) {
+        // "Brm"
+        v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        TextView house = (TextView) findViewById(R.id.txtHouse );
+        TextView channel = (TextView) findViewById(R.id.txtChannel );
+        String shouse = house.getText().toString();
+        String schannel = channel.getText().toString();
+        String data = "house=" + shouse + "&channel=" + schannel + "&onoff=on";
+        String getUrl = baseUrL.concat(data);
+        new NexaSend().execute(getUrl);
+    }
+    // Button sendOff clicked
+    public void sendOff(View v) {
+        // "Brm"
+        v.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+        TextView house = (TextView) findViewById(R.id.txtHouse );
+        TextView channel = (TextView) findViewById(R.id.txtChannel );
+        String shouse = house.getText().toString();
+        String schannel = channel.getText().toString();
+        String data = "house=" + shouse + "&channel=" + schannel + "&onoff=off";
+        String getUrl = baseUrL.concat(data);
+        new NexaSend().execute(getUrl);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
